@@ -3,21 +3,27 @@ import java.util.*;
 
 public class PalindromeCheckerApp {
     public static void main(String[] args){
-        String text = "civic";
-        Stack<Character> st = new Stack<>();
-        Queue<Character> q = new LinkedList<>();
-        for(char c: text.toCharArray()){
-            st.push(c);
-            q.add(c);
+        String word = "wow";
+        Deque<Character> deque = new LinkedList();
+
+        for(int i = 0; i < word.length(); ++i) {
+            deque.addLast(word.charAt(i));
         }
-        boolean isPalin = true;
-        for(char c:text.toCharArray()){
-            if(q.remove()!=st.pop()){
-                isPalin=false;
+
+        boolean isPalindrome = true;
+
+        while(deque.size() > 1) {
+            if (deque.removeFirst() != deque.removeLast()) {
+                isPalindrome = false;
                 break;
             }
         }
-        System.out.print(text+" is a palindrome?:"+isPalin);
+
+        if (isPalindrome) {
+            System.out.println(word + " is a Palindrome");
+        } else {
+            System.out.println(word + " is NOT a Palindrome");
+        }
     }
 }
 
