@@ -1,4 +1,4 @@
-public class UseCase9PalindromeCheckerApp {
+public class UseCase10PalindromeCheckerApp {
 
     static boolean isPalindrome(String word, int start, int end) {
         if (start >= end) return true;
@@ -7,9 +7,11 @@ public class UseCase9PalindromeCheckerApp {
     }
 
     public static void main(String[] args) {
-        String word = "racecar";
+        String word = "A man a plan a canal Panama";
 
-        if (isPalindrome(word, 0, word.length() - 1))
+        String normalized = word.toLowerCase().replaceAll("[^a-z0-9]", "");
+
+        if (isPalindrome(normalized, 0, normalized.length() - 1))
             System.out.println(word + " is a Palindrome");
         else
             System.out.println(word + " is NOT a Palindrome");
